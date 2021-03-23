@@ -34,9 +34,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Print(string(res))
 
 	l := blackfriday.Run(res)
-	fmt.Print(string(l))
-	w.Write([]byte(l))
-	w.Header().Set("Content-Type", "text/plain")
+	w.Header().Set("content-type", "text/html")
+	w.Write(l)
 
-	//return string(l)
+	return
 }
